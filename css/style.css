@@ -132,6 +132,12 @@ body.lock {
      -moz-column-gap: 60px;
           column-gap: 60px;
 }
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: auto;
+    row-gap: clamp(1.25rem, 0.568rem + 3.41vw, 3.125rem);
+  }
+}
 
 .about__play--hidden {
   display: none;
@@ -294,10 +300,15 @@ body.lock {
 }
 .hero {
   margin-bottom: var(--mb);
-  padding: 270px 0 0 0;
+  padding-top: 270px;
   height: 100vh;
   background: url("./../img/hero-bg.png") center/cover no-repeat;
   color: #fff;
+}
+@media (max-height: 600px) {
+  .hero {
+    padding-top: 150px;
+  }
 }
 .hero__title {
   margin: 0 0 30px 0;
@@ -346,7 +357,7 @@ body.lock {
 .about__video {
   position: relative;
   width: 100%;
-  height: 630px;
+  height: clamp(25rem, 14.732rem + 51.34vw, 39.375rem);
   overflow: hidden;
 }
 .about__video video {
@@ -375,6 +386,11 @@ body.lock {
      object-fit: cover;
 }
 
+@media (max-width: 640px) {
+  .progress {
+    text-align: center;
+  }
+}
 .progress__value {
   font-weight: 300;
   font-size: clamp(2.5rem, 1.973rem + 2.64vw, 4rem);
@@ -536,14 +552,4 @@ body.lock {
   -webkit-transition: all 0.3s linear 0s;
   -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
-}
-
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: auto;
-    row-gap: 50px;
-  }
-  .progress {
-    text-align: center;
-  }
 }
