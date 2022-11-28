@@ -1,10 +1,14 @@
 @import "_nullstyle.scss";
-@import "_mixin-adaptive.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-$mainColor: #838383;
+:root {
+	--mb: clamp(5rem, 2.582rem + 12.09vw, 11.875rem);
+	--primary-grey: #838383;
+	--primary-dark: #1d1d1f;
+}
+
 body {
-	font-family: Inter, sans-serif;
+	font-family: "Inter", sans-serif;
 	&.lock {
 		overflow: hidden;
 	}
@@ -33,10 +37,6 @@ body {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	column-gap: 60px;
-}
-%margin-bottom {
-	margin-bottom: 190px;
-	@include adaptiv-value("margin-bottom", 190, 80, 0);
 }
 .about__play--hidden {
 	display: none;
@@ -152,7 +152,7 @@ body {
 }
 
 .hero {
-	@extend %margin-bottom;
+	margin-bottom: var(--mb);
 	padding: 270px 0 0 0;
 	height: 100vh;
 	background: url("./../img/hero-bg.png") center / cover no-repeat;
@@ -163,11 +163,9 @@ body {
 		max-width: 936px;
 		font-weight: 600;
 		font-size: 90px;
-		font-size: clamp(1.875rem, calc(1.125rem + 3.75vw), 5.625rem);
-		line-height: 116px;
+		font-size: clamp(1.875rem, 0.424rem + 7.25vw, 6rem);
+		line-height: clamp(2.5rem, 0.83rem + 8.35vw, 7.25rem);
 		color: #fff;
-		@include adaptiv-value("font-size", 96, 30, 0);
-		@include adaptiv-value("line-height", 116, 40, 0);
 	}
 
 	&__descr {
@@ -184,10 +182,10 @@ body {
 }
 
 .about {
-	@extend %margin-bottom;
+	margin-bottom: var(--mb);
 
 	&__top {
-		@extend %margin-bottom;
+		margin-bottom: var(--mb);
 		align-items: center;
 	}
 
@@ -198,10 +196,8 @@ body {
 	&__title {
 		margin: 0 0 60px 0;
 		font-weight: 700;
-		font-size: 44px;
-		line-height: 61px;
-		@include adaptiv-value("font-size", 44, 18, 0);
-		@include adaptiv-value("line-height", 61, 25, 0);
+		font-size: clamp(1.125rem, 0.554rem + 2.86vw, 2.75rem);
+		line-height: clamp(1.563rem, 0.771rem + 3.96vw, 3.813rem);
 	}
 
 	&__text {
@@ -243,26 +239,24 @@ body {
 .progress {
 	&__value {
 		font-weight: 300;
-		font-size: 64px;
-		line-height: 90px;
-		@include adaptiv-value("font-size", 64, 40, 0);
+		font-size: clamp(2.5rem, 1.973rem + 2.64vw, 4rem);
+		line-height: clamp(3.125rem, 2.246rem + 4.4vw, 5.625rem);
 	}
 
 	&__descr {
 		font-weight: 400;
+		font-size: clamp(1.125rem, 0.993rem + 0.66vw, 1.5rem);
 		line-height: 24px;
-		color: $mainColor;
-		@include adaptiv-value("font-size", 24, 18, 0);
+		color: var(--primary-grey);
 	}
 }
 
 .portfolio {
-	@extend %margin-bottom;
+	margin-bottom: var(--mb);
 
 	&__row {
-		margin: 0 0 120px 0;
+		margin-bottom: clamp(3.125rem, 1.587rem + 7.69vw, 7.5rem);
 		align-items: center;
-		@include adaptiv-value("margin-bottom", 120, 50, 0);
 	}
 
 	&__column {
@@ -280,47 +274,43 @@ body {
 		margin: 0 0 20px 0;
 		font-size: 24px;
 		line-height: 34px;
-		color: $mainColor;
+		color: var(--primary-grey);
 	}
 
 	&__descr {
-		margin: 0 0 80px 0;
+		margin-bottom: clamp(1.25rem, -0.069rem + 6.59vw, 5rem);
 		line-height: 24px;
-		@include adaptiv-value("margin-bottom", 80, 40, 0);
 	}
 }
 
 .quote {
-	@extend %margin-bottom;
+	margin-bottom: var(--mb);
 
 	&__title {
-		margin: 0 0 50px 0;
-		color: $mainColor;
-		@include adaptiv-value("margin-bottom", 50, 25, 0);
+		margin-bottom: clamp(1.563rem, 1.013rem + 2.75vw, 3.125rem);
+		color: var(--primary-grey);
 	}
 
 	&__text {
 		margin: 0 0 30px 0;
 		max-width: 820px;
-		font-size: 36px;
-		line-height: 54px;
+		font-size: clamp(1.125rem, 0.729rem + 1.98vw, 2.25rem);
+		line-height: clamp(1.375rem, 0.672rem + 3.52vw, 3.375rem);
 		box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
-		@include adaptiv-value("font-size", 36, 18, 0);
-		@include adaptiv-value("line-height", 54, 25, 0);
 	}
 
 	&__author {
 		& span {
-			color: $mainColor;
+			color: var(--primary-grey);
 		}
 	}
 }
 
 .services {
-	@extend %margin-bottom;
+	margin-bottom: var(--mb);
 
 	&__image {
-		@extend %margin-bottom;
+		margin-bottom: var(--mb);
 		& img {
 			display: block;
 			width: 100%;
@@ -341,18 +331,18 @@ body {
 	&__title {
 		font-weight: 500;
 		font-size: 32px;
-		color: #1d1d1f;
+		color: var(--primary-dark);
 	}
 
 	&__descr {
 		line-height: 24px;
-		color: $mainColor;
+		color: var(--primary-grey);
 	}
 }
 
 .footer {
 	padding: 90px 0;
-	background-color: #1d1d1f;
+	background-color: var(--primary-dark);
 	color: #fff;
 
 	&__logo {
@@ -362,17 +352,14 @@ body {
 
 	&__address {
 		margin: 0 0 30px 0;
-		color: $mainColor;
+		color: var(--primary-grey);
 	}
 
 	&__title {
-		margin: 0 0 34px 0;
+		margin-bottom: clamp(0.625rem, 0.098rem + 2.64vw, 2.125rem);
 		font-weight: 500;
-		font-size: 32px;
-		line-height: 41px;
-		@include adaptiv-value("font-size", 32, 18, 0);
-		@include adaptiv-value("line-height", 41, 25, 0);
-		@include adaptiv-value("margin-bottom", 34, 10, 0);
+		font-size: clamp(1.125rem, 0.817rem + 1.54vw, 2rem);
+		line-height: clamp(1.563rem, 1.211rem + 1.76vw, 2.563rem);
 	}
 
 	&__form {
@@ -387,7 +374,7 @@ body {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		color: #fff;
-		border-bottom: 1px solid $mainColor;
+		border-bottom: 1px solid var(--primary-grey);
 		background-color: transparent;
 		transition: all 0.5s linear 0s;
 		&:focus {
